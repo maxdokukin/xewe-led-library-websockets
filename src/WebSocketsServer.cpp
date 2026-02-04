@@ -547,7 +547,7 @@ void WebSocketsServerCore::dropNativeClient(WSclient_t * client) {
     if(client->tcp) {
         if(client->tcp->connected()) {
 #if (WEBSOCKETS_NETWORK_TYPE != NETWORK_ESP8266_ASYNC) && (WEBSOCKETS_NETWORK_TYPE != NETWORK_ESP32) && (WEBSOCKETS_NETWORK_TYPE != NETWORK_RP2040)
-            client->tcp->flush();
+            client->tcp->clear();
 #endif
             client->tcp->stop();
         }

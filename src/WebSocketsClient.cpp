@@ -570,7 +570,7 @@ void WebSocketsClient::clientDisconnect(WSclient_t * client, const char * reason
     if(client->tcp) {
         if(client->tcp->connected()) {
 #if (WEBSOCKETS_NETWORK_TYPE != NETWORK_ESP8266_ASYNC)
-            client->tcp->flush();
+            client->tcp->clear();
 #endif
             client->tcp->stop();
         }
